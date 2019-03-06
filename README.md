@@ -12,3 +12,12 @@ cronjobs, infinite loops with parallel threads or any other solution)
 database table or move the files to another directory.
 5. Develop an small web API with two endpoints to: get a JSON object with the avaiable files
 and get a JSON object with archived files.
+
+## Installation
+==> mongodb
+To have launchd start mongodb now and restart at login:
+  brew services start mongodb
+Or, if you don't want/need a background service you can just run:
+  mongod --config /usr/local/etc/mongod.conf
+  
+  

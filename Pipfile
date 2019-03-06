@@ -8,6 +8,8 @@ verify_ssl = true
 [packages]
 flask = "*"
 twisted = "*"
+pymongo = "*"
+watchdog = "*"
 
 [requires]
 python_version = "3.7"

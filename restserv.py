@@ -6,13 +6,13 @@ from socket import gethostname
 app = Flask(__name__)
 
 
-@app.route('/login', methods=['POST', 'GET'])
 @app.route('/hello/')
 @app.route('/hello/<name>')
-
 def hello(name=None):
     return render_template('hello.html', name=name)
 
+
+@app.route('/login', methods=['POST', 'GET'])
 def login():
     error = None
     if request.method == 'POST':
@@ -29,4 +29,4 @@ def login():
 if __name__ == '__main__':
     # db.create_all()
     if 'liveconsole' not in gethostname():  # Avoid app.run() if deploying on PythonAnywhere service
-        app.run(host='127.0.0.1',port=8000,debug=True)
+        app.run(host='127.0.0.1', port=8000, debug=True)
