@@ -30,8 +30,12 @@ class FileMetadata:
     def __init__(self, path):
         self.path = path
         self.dir, self.name = os.path.split(path)
-        self.created = os.stat(path).st_ctime
-        self.modified = self.created
+        if os.path.isfile(path):
+            self.created = os.stat(path).st_ctime
+            self.modified = self.created
+        else:
+            self.created = 0
+            self.modified = 0
 
     def json(self):
         obj_json = {"path": self.path,
