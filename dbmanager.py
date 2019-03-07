@@ -8,12 +8,11 @@ The filedata json data is structured thus:
  "filepath":"",
  "filesize":"",
  "creationtume":"",
- "modifiedtime":""
+ "modifiedtime":"",
  "archived": ""}
 """
 import time, threading
 from pymongo import MongoClient
-
 
 
 class FilesDatabase:
@@ -31,7 +30,7 @@ class FilesDatabase:
         self.client = None
         self.db = None
         self.collection = None
-        # self.watch_file_times(self)  # Start the file time scanner
+        self.watch_file_times(self)  # Start the file time scanner
 
     def watch_file_times(self, this):
         """
@@ -41,7 +40,7 @@ class FilesDatabase:
         """
         print("File time to archive scan")
         this.scan_for_archive_time(this)
-        threading.Timer(5, this.watch_file_times).start()
+        threading.Timer(5, this.watch_file_times, [this]).start()
 
     def connect(self):
         """ connect():
@@ -75,6 +74,7 @@ class FilesDatabase:
         :param file_data:
         :return:
         """
+        file_data['archived'] = ""
         self.collection.insert_one(file_data)
 
     def update_entry(self, file_data):
@@ -122,7 +122,7 @@ class FilesDatabase:
         """
         filelist = []
         for doc in self.collection.find({}):
-            if doc['archived'] == "":
+            if ('archived' not in doc.keys()) or (doc['archived'] == ""):
                 item = {'name': doc['name'],
                         'path': doc['path'],
                         'created': doc['created'],
@@ -143,7 +143,7 @@ class FilesDatabase:
         """
         filelist = []
         for doc in self.collection.find({}):
-            if doc['archived'] != "":
+            if ('archived' in doc.keys()) and (doc['archived'] != ""):
                 item = {'name': doc['name'],
                         'path': doc['path'],
                         'created': doc['created'],

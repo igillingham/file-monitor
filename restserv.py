@@ -31,12 +31,26 @@ def help(name=None):
 
 class FilesAvailable(Resource):
     def get(self):
+        avail = dbmanager.db.get_available_entries()
+        return avail
+
+
+class FilesArchived(Resource):
+    def get(self):
+        avail = dbmanager.db.get_archived_entries()
+        return avail
+
+
+class FilesAll(Resource):
+    def get(self):
         avail = dbmanager.db.get_all_entries()
         return avail
 
 
 # This is the RESTful API definition area...
 api.add_resource(FilesAvailable, '/filesavailable')
+api.add_resource(FilesArchived, '/filesarchived')
+api.add_resource(FilesAll, '/filesall')
 
 
 if __name__ == '__main__':

@@ -6,6 +6,11 @@
 <p>A directory is monitored for changes and additions to files. After a rolling five day period, files will be moved to the archive directory.</p>
 <p>The RHEA File Services facilitates a RESTful API to retrieve lists of files and their metadata, in both the available files directory and the archive directory</p>
 <br/>
+<p>View the available files in the browser or app via:</p>
+<p>curl http://localhost:8000/filesavailable</p>
+<p>curl http://localhost:8000/filesarchived</p>
+<p>curl http://localhost:8000/filesall</p>
+<br/>
 {% if name %}
 <h2>Assistance for: {{name}}</h2>
 {% else %}
