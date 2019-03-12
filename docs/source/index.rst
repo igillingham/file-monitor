@@ -10,7 +10,7 @@ Welcome to restserv documentation!
     :maxdepth: 2
     :caption: Contents:
 
-    design-notes
+    design_notes
     analysis_design
 
 
