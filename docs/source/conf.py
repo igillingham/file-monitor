@@ -20,6 +20,14 @@
 # import sys
 # sys.path.insert(0, os.path.abspath('.'))
 
+from recommonmark.parser import CommonMarkParser
+
+source_parsers = {
+    '.md': CommonMarkParser,
+}
+
+source_suffix = ['.rst', '.md']
+
 
 # -- General configuration ------------------------------------------------
 
@@ -122,7 +130,7 @@ htmlhelp_basename = 'restservdoc'
 latex_elements = {
     # The paper size ('letterpaper' or 'a4paper').
     #
-    # 'papersize': 'letterpaper',
+    'papersize': 'a4paper',
 
     # The font size ('10pt', '11pt' or '12pt').
     #
