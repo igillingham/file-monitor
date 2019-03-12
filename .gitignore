@@ -1,2 +1,4 @@
 # Created by .ignore support plugin (hsz.mobi)
 restserv.iml
+_build/doctrees
+_build/html

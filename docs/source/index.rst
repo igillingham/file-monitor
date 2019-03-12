@@ -6,9 +6,11 @@
 Welcome to restserv documentation!
 ==================================
 
-.. toctree::
-   :maxdepth: 2
-   :caption: Contents:
+..  toctree::
+    :maxdepth: 2
+    :caption: Contents:
+
+    analysis_design
 
 
 
