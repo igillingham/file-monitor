@@ -10,6 +10,7 @@ Welcome to restserv documentation!
     :maxdepth: 2
     :caption: Contents:
 
+    design-notes
     analysis_design
 
 
@@ -17,6 +18,7 @@ Welcome to restserv documentation!
 Indices and tables
 ==================
 
+* :ref:`design-notes`
 * :ref:`genindex`
 * :ref:`modindex`
 * :ref:`search`
